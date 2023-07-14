@@ -37,20 +37,40 @@ public class Rivista extends Elemento {
 		return titolo;
 	}
 
+	public void setTitolo(String _titolo) {
+		this.titolo = _titolo;
+	}
+
 	public int getAnno() {
 		return anno;
+	}
+
+	public void setAnno(int _anno) {
+		this.anno = _anno;
 	}
 
 	public int getPagine() {
 		return pagine;
 	}
 
+	public void setPagine(int _pagine) {
+		this.pagine = _pagine;
+	}
+
 	public Periodicita getPeriodicita() {
 		return periodicita;
 	}
 
+	public void setPeriodicita(Periodicita _periodicita) {
+		this.periodicita = _periodicita;
+	}
+
 	public Prestito getPrestito() {
 		return prestito;
+	}
+
+	public void setPrestito(Prestito _prestito) {
+		this.prestito = _prestito;
 	}
 
 	@Override
