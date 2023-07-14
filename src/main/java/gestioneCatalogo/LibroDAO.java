@@ -90,4 +90,16 @@ public class LibroDAO {
 		return risultati;
 	}
 
+	// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
+
+	public List<Libro> cercaPerTitolo(String _titolo) {
+		TypedQuery<Libro> query = entityManager
+				.createQuery("SELECT l FROM Libro l WHERE l.titolo LIKE :_titolo", Libro.class)
+				.setParameter("_titolo", "%" + _titolo + "%");
+
+		List<Libro> risultati = query.getResultList();
+
+		return risultati;
+	}
+
 }
