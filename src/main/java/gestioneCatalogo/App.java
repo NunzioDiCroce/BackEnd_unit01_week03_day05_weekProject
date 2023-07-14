@@ -44,7 +44,7 @@ public class App {
 
 		// - - - - - - - - - - - - - - - - - - - - SETTING & SAVING
 
-		// concertoDao.save(primoConcerto);
+		libroDao.save(primoLibro);
 		// primoConcerto.setGenere(Genere.CLASSICO);
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
