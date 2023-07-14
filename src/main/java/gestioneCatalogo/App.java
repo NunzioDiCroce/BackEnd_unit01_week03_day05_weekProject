@@ -1,6 +1,7 @@
 package gestioneCatalogo;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -63,7 +64,18 @@ public class App {
 		if (libroCercato != null) {
 			System.out.println(libroCercato.toString());
 		} else {
-			System.out.println("Libro non trovato");
+			System.out.println("Nessun libro trovato per l'ISBN specificato");
+		}
+
+		// - - - - - - - - - - - - - - - - - - - - 4) Ricerca per anno pubblicazione
+		List<Libro> libriPerAnno = libroDao.cercaPerAnno(1980);
+
+		if (!libriPerAnno.isEmpty()) {
+			for (Libro libro : libriPerAnno) {
+				System.out.println(libro.toString());
+			}
+		} else {
+			System.out.println("Nessun libro trovato per l'anno specificato");
 		}
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
