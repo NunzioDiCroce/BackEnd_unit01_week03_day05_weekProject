@@ -78,4 +78,16 @@ public class LibroDAO {
 
 		return risultati;
 	}
+
+	// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore
+	public List<Libro> cercaPerAutore(String _autore) {
+		TypedQuery<Libro> query = entityManager
+				.createQuery("SELECT l FROM Libro l WHERE l.autore = :_autore", Libro.class)
+				.setParameter("_autore", _autore);
+
+		List<Libro> risultati = query.getResultList();
+
+		return risultati;
+	}
+
 }
