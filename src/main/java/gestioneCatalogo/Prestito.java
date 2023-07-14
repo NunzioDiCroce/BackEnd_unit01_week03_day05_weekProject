@@ -22,40 +22,35 @@ public class Prestito {
 	}
 
 	// - - - - - - - - - - - - - - - - - - - - getters & setters
-	public String getNome() {
-		return nome;
+	// *****UTENTE;
+	// *****ELEMENTO PRESTATO;
+
+	public LocalDate getInizioPrestito() {
+		return inizioPrestito;
 	}
 
-	public void setNome(String _nome) {
-		this.nome = _nome;
+	public void setInizioPrestito(LocalDate _inizioPrestito) {
+		this.inizioPrestito = _inizioPrestito;
 	}
 
-	public String getCognome() {
-		return cognome;
+	public LocalDate getRestituzionePrevista() {
+		return restituzionePrevista;
 	}
 
-	public void setCognome(String _cognome) {
-		this.cognome = _cognome;
+	public void setRestituzionePrevista(LocalDate _restituzionePrevista) {
+		this.restituzionePrevista = _restituzionePrevista;
 	}
 
-	public LocalDate getNascita() {
-		return nascita;
+	public LocalDate getRestituzioneEffettiva() {
+		return restituzioneEffettiva;
 	}
 
-	public void setNascita(LocalDate _nascita) {
-		this.nascita = _nascita;
-	}
-
-	public String getTessera() {
-		return tessera;
-	}
-
-	public void setTessera(String _tessera) {
-		this.tessera = _tessera;
+	public void setRestituzioneEffettiva(LocalDate _restituzioneEffettiva) {
+		this.restituzioneEffettiva = _restituzioneEffettiva;
 	}
 
 	@Override
 	public String toString() {
-		return "Utente [" + nome + ", " + cognome + ", " + nascita + ", " + tessera + "]";
+		return "Prestito [" + inizioPrestito + ", " + restituzionePrevista + ", " + restituzioneEffettiva + "]";
 	}
 }
