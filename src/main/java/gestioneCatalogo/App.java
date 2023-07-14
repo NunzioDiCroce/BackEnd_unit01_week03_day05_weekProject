@@ -48,7 +48,7 @@ public class App {
 
 		// - - - - - - - - - - - - - - - - - - - - 1) Aggiunta di un elemento del
 		// catalogo
-		libroDao.save(primoLibro);
+		// libroDao.save(primoLibro);
 		// rivistaDao.save(primaRivista);
 
 		// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
@@ -56,7 +56,7 @@ public class App {
 		// libroDao.rimuoviPerISBN("001");
 
 		// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
-		// libroDao.ricercaISBN("001");
+		libroDao.cercaPerISBN("001");
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
