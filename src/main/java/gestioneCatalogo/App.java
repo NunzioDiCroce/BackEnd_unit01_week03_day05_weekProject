@@ -90,6 +90,17 @@ public class App {
 			System.out.println("Nessun libro trovato per l'autore specificato");
 		}
 
+		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
+		List<Libro> libriPerTitolo = libroDao.cercaPerTitolo("primo");
+
+		if (!libriPerTitolo.isEmpty()) {
+			for (Libro libro : libriPerTitolo) {
+				System.out.println(libro.toString());
+			}
+		} else {
+			System.out.println("Nessun libro trovato per il titolo specificato");
+		}
+
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
 		entityManager.close();
