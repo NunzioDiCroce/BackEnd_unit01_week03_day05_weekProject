@@ -30,8 +30,20 @@ public class Prestito {
 	protected LocalDate restituzionePrevista; // *****calcolata automaticamente a 30 gg dalla data inizio prestito;
 	protected LocalDate restituzioneEffettiva;
 
+	public void calcolaRestituzionePrevista(LocalDate _data) {
+		this.inizioPrestito = _data;
+		this.restituzionePrevista = _data.plusDays(30);
+	}
+
 	// - - - - - - - - - - - - - - - - - - - - constructors
 	public Prestito() {
+
+	}
+
+	public Prestito(LocalDate _inizioPrestito, LocalDate _restituzioneEffettiva) {
+		this.inizioPrestito = _inizioPrestito;
+		// this.restituzionePrevista = _restituzionePrevista;
+		this.restituzioneEffettiva = _restituzioneEffettiva;
 
 	}
 
