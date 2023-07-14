@@ -2,9 +2,18 @@ package gestioneCatalogo;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Prestito {
 
 	// - - - - - - - - - - - - - - - - - - - - attributes
+	@Id
+	@GeneratedValue
+	private long id;
+
 	// *****UTENTE;
 	// *****ELEMENTO PRESTATO;
 	protected LocalDate inizioPrestito;
@@ -12,6 +21,10 @@ public class Prestito {
 	protected LocalDate restituzioneEffettiva;
 
 	// - - - - - - - - - - - - - - - - - - - - constructors
+	public Prestito() {
+
+	}
+
 	public Prestito(LocalDate _inizioPrestito, LocalDate _restituzionePrevista, LocalDate _restituzioneEffettiva) {
 		// *****UTENTE;
 		// *****ELEMENTO PRESTATO;

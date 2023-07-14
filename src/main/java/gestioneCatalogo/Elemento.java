@@ -1,14 +1,30 @@
 package gestioneCatalogo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Elemento {
 
 	// - - - - - - - - - - - - - - - - - - - - attributes
+	@Id
+	@GeneratedValue
+	private long id;
+
 	protected String isbn;
 	protected String titolo;
 	protected int anno;
 	protected int pagine;
 
 	// - - - - - - - - - - - - - - - - - - - - constructors
+	public Elemento() {
+
+	}
+
 	public Elemento(String _isbn, String _titolo, int _anno, int _pagine) {
 		this.isbn = _isbn;
 		this.titolo = _titolo;
@@ -17,6 +33,10 @@ public abstract class Elemento {
 	}
 
 	// - - - - - - - - - - - - - - - - - - - - getters & setters
+	public long getId() {
+		return id;
+	}
+
 	public String getIsbn() {
 		return isbn;
 	}
@@ -35,7 +55,7 @@ public abstract class Elemento {
 
 	@Override
 	public String toString() {
-		return "Elemento [" + isbn + ", " + titolo + ", " + anno + ", " + pagine + "]";
+		return "Elemento [" + id + ", " + isbn + ", " + titolo + ", " + anno + ", " + pagine + "]";
 	}
 
 }

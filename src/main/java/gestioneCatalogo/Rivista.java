@@ -1,11 +1,18 @@
 package gestioneCatalogo;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Rivista extends Elemento {
 
 	// - - - - - - - - - - - - - - - - - - - - attributes
 	protected Periodicita periodicita;
 
 	// - - - - - - - - - - - - - - - - - - - - constructors
+	public Rivista() {
+
+	}
+
 	public Rivista(String _isbn, String _titolo, int _anno, int _pagine) {
 		super(_isbn, _titolo, _anno, _pagine);
 		// TODO Auto-generated constructor stub

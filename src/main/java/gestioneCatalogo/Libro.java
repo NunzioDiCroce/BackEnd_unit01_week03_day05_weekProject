@@ -1,5 +1,8 @@
 package gestioneCatalogo;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Libro extends Elemento {
 
 	// - - - - - - - - - - - - - - - - - - - - attributes
@@ -7,6 +10,10 @@ public class Libro extends Elemento {
 	protected String genere;
 
 	// - - - - - - - - - - - - - - - - - - - - constructors
+	public Libro() {
+
+	}
+
 	public Libro(String _isbn, String _titolo, int _anno, int _pagine) {
 		super(_isbn, _titolo, _anno, _pagine);
 		// TODO Auto-generated constructor stub
