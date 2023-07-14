@@ -78,6 +78,18 @@ public class App {
 			System.out.println("Nessun libro trovato per l'anno specificato");
 		}
 
+		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore
+
+		List<Libro> libriPerAutore = libroDao.cercaPerAutore("Mario Rossi");
+
+		if (!libriPerAutore.isEmpty()) {
+			for (Libro libro : libriPerAutore) {
+				System.out.println(libro.toString());
+			}
+		} else {
+			System.out.println("Nessun libro trovato per l'autore specificato");
+		}
+
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
 		entityManager.close();
