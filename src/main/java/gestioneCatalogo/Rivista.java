@@ -23,6 +23,11 @@ public class Rivista extends Elemento {
 		this.periodicita = _periodicita;
 	}
 
+	public Rivista(String _isbn, String _titolo, int _anno, int _pagine, Periodicita _periodicita, Prestito _prestito) {
+		super(_isbn, _titolo, _anno, _pagine, _prestito);
+		this.periodicita = _periodicita;
+	}
+
 	// - - - - - - - - - - - - - - - - - - - - getters & setters
 	public String getIsbn() {
 		return isbn;
@@ -42,6 +47,10 @@ public class Rivista extends Elemento {
 
 	public Periodicita getPeriodicita() {
 		return periodicita;
+	}
+
+	public Prestito getPrestito() {
+		return prestito;
 	}
 
 	@Override

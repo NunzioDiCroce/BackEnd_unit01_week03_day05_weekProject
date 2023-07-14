@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Prestito {
@@ -14,8 +17,13 @@ public class Prestito {
 	@GeneratedValue
 	private long id;
 
-	// *****UTENTE;
-	// *****ELEMENTO PRESTATO;
+	@ManyToOne
+	@JoinColumn(name = "utente_id")
+	protected Utente utente;
+
+	@OneToOne
+	protected Elemento elemento;
+
 	protected LocalDate inizioPrestito;
 	protected LocalDate restituzionePrevista; // *****calcolata automaticamente a 30 gg dalla data inizio prestito;
 	protected LocalDate restituzioneEffettiva;

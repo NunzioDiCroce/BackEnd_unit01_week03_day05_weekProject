@@ -1,10 +1,12 @@
 package gestioneCatalogo;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,9 @@ public class Utente {
 	protected String cognome;
 	protected LocalDate nascita;
 	protected String tessera;
+
+	@OneToMany(mappedBy = "utente")
+	protected Set<Prestito> prestiti;
 
 	// - - - - - - - - - - - - - - - - - - - - constructors
 	public Utente() {

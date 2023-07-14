@@ -25,6 +25,13 @@ public class Libro extends Elemento {
 		this.genere = _genere;
 	}
 
+	public Libro(String _isbn, String _titolo, int _anno, int _pagine, String _autore, String _genere,
+			Prestito _prestito) {
+		super(_isbn, _titolo, _anno, _pagine, _prestito);
+		this.autore = _autore;
+		this.genere = _genere;
+	}
+
 	// - - - - - - - - - - - - - - - - - - - - getters & setters
 	public String getIsbn() {
 		return isbn;
@@ -48,6 +55,10 @@ public class Libro extends Elemento {
 
 	public String getGenere() {
 		return genere;
+	}
+
+	public Prestito getPrestito() {
+		return prestito;
 	}
 
 	@Override
