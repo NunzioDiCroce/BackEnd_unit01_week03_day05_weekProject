@@ -60,9 +60,10 @@ public class LibroDAO {
 	// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
 	public Libro cercaPerISBN(String _isbn) {
 		Libro libroCercato = entityManager.createQuery("SELECT l FROM Libro l WHERE l.isbn = :_isbn", Libro.class)
-				.setParameter("isbn", _isbn).getSingleResult();
+				.setParameter("_isbn", _isbn).getSingleResult();
 
 		return libroCercato;
+
 	}
 
 }

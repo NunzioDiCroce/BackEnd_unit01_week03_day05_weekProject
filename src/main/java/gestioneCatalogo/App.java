@@ -56,7 +56,15 @@ public class App {
 		// libroDao.rimuoviPerISBN("001");
 
 		// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
-		libroDao.cercaPerISBN("001");
+		// libroDao.cercaPerISBN("001");
+
+		Libro libroCercato = libroDao.cercaPerISBN("001");
+
+		if (libroCercato != null) {
+			System.out.println(libroCercato.toString());
+		} else {
+			System.out.println("Libro non trovato");
+		}
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
