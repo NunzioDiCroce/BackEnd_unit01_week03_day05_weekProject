@@ -1,7 +1,10 @@
 package gestioneCatalogo;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 public class LibroDAO {
 
@@ -66,4 +69,13 @@ public class LibroDAO {
 
 	}
 
+	// - - - - - - - - - - - - - - - - - - - - 4) Ricerca per anno pubblicazione
+	public List<Libro> cercaPerAnno(int _anno) {
+		TypedQuery<Libro> query = entityManager.createQuery("SELECT l FROM Libro l WHERE l.anno = :_anno", Libro.class)
+				.setParameter("_anno", _anno);
+
+		List<Libro> risultati = query.getResultList();
+
+		return risultati;
+	}
 }
