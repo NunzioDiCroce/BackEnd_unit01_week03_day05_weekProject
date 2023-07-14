@@ -11,6 +11,8 @@ public class RivistaDAO {
 		this.entityManager = _entityManager;
 	}
 
+	// - - - - - - - - - - - - - - - - - - - - 1) Aggiunta di un elemento del
+	// catalogo
 	public void save(Rivista _rivista) {
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();

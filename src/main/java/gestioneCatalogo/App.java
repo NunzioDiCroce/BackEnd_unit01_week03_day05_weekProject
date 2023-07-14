@@ -42,10 +42,21 @@ public class App {
 		UtenteDAO utenteDao = new UtenteDAO(entityManager);
 		PrestitoDAO prestitoDao = new PrestitoDAO(entityManager);
 
-		// - - - - - - - - - - - - - - - - - - - - SETTING & SAVING
+		// - - - - - - - - - - - - - - - - - - - - GESTIONE UTENTI E PRESTITI
+		// utenteDao.save(primoUtente);
+		// prestitoDao.save(primoPrestito);
 
+		// - - - - - - - - - - - - - - - - - - - - 1) Aggiunta di un elemento del
+		// catalogo
 		libroDao.save(primoLibro);
-		// primoConcerto.setGenere(Genere.CLASSICO);
+		// rivistaDao.save(primaRivista);
+
+		// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
+		// catalogo dato un codice ISBN
+		// libroDao.rimuoviPerISBN("001");
+
+		// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
+		// libroDao.ricercaISBN("001");
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing

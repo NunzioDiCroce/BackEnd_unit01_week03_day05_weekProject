@@ -11,6 +11,8 @@ public class LibroDAO {
 		this.entityManager = _entityManager;
 	}
 
+	// - - - - - - - - - - - - - - - - - - - - 1) Aggiunta di un elemento del
+	// catalogo
 	public void save(Libro _libro) {
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
@@ -32,6 +34,24 @@ public class LibroDAO {
 			entityManager.remove(libroCercato);
 			entityTransaction.commit();
 
+		} else {
+			System.out.println("Libro non trovato");
+		}
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
+	// catalogo dato un codice ISBN
+	public void rimuoviPerISBN(String isbn) {
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+
+		Libro libro = entityManager.createQuery("SELECT l FROM Libro l WHERE l.isbn = :isbn", Libro.class)
+				.setParameter("isbn", isbn).getSingleResult();
+
+		if (libro != null) {
+			entityManager.remove(libro);
+			transaction.commit();
+			System.out.println("Libro rimosso correttamente");
 		} else {
 			System.out.println("Libro non trovato");
 		}
