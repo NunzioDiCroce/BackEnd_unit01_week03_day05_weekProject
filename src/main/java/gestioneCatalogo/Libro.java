@@ -41,24 +41,48 @@ public class Libro extends Elemento {
 		return titolo;
 	}
 
+	public void setTitolo(String _titolo) {
+		this.titolo = _titolo;
+	}
+
 	public int getAnno() {
 		return anno;
+	}
+
+	public void setAnno(int _anno) {
+		this.anno = _anno;
 	}
 
 	public int getPagine() {
 		return pagine;
 	}
 
+	public void setPagine(int _pagine) {
+		this.pagine = _pagine;
+	}
+
 	public String getAutore() {
 		return autore;
+	}
+
+	public void setAutore(String _autore) {
+		this.autore = _autore;
 	}
 
 	public String getGenere() {
 		return genere;
 	}
 
+	public void setGenere(String _genere) {
+		this.genere = _genere;
+	}
+
 	public Prestito getPrestito() {
 		return prestito;
+	}
+
+	public void setPrestito(Prestito _prestito) {
+		this.prestito = _prestito;
 	}
 
 	@Override
