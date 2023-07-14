@@ -45,7 +45,6 @@ public class Libro extends Elemento {
 
 	@Override
 	public String toString() {
-		return "[ISBN " + isbn + " " + "\"" + titolo + "\"" + ", " + anno + ", " + pagine + " pagine" + ", autore "
-				+ autore + ", genere " + genere + "]";
+		return "Libro [" + isbn + ", " + titolo + ", " + anno + ", " + pagine + ", " + autore + ", " + genere + "]";
 	}
 }

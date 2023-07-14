@@ -35,7 +35,7 @@ public abstract class Elemento {
 
 	@Override
 	public String toString() {
-		return "[ISBN " + isbn + " " + "\"" + titolo + "\"" + ", " + anno + ", " + pagine + " pagine" + "]";
+		return "Elemento [" + isbn + ", " + titolo + ", " + anno + ", " + pagine + "]";
 	}
 
 }
