@@ -39,6 +39,15 @@ public class Utente {
 
 	}
 
+	public Utente(String _nome, String _cognome, LocalDate _nascita, String _tessera, Set<Prestito> _prestiti) {
+		this.nome = _nome;
+		this.cognome = _cognome;
+		this.nascita = _nascita;
+		this.tessera = _tessera;
+		this.prestiti = _prestiti;
+
+	}
+
 	// - - - - - - - - - - - - - - - - - - - - getters & setters
 	public long getId() {
 		return id;
@@ -74,6 +83,14 @@ public class Utente {
 
 	public void setTessera(String _tessera) {
 		this.tessera = _tessera;
+	}
+
+	public Set<Prestito> getPrestiti() {
+		return prestiti;
+	}
+
+	public void setPrestiti(Set<Prestito> _prestiti) {
+		this.prestiti = _prestiti;
 	}
 
 	@Override

@@ -8,8 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "prestiti")
 public class Prestito {
 
 	// - - - - - - - - - - - - - - - - - - - - attributes
@@ -34,8 +36,16 @@ public class Prestito {
 	}
 
 	public Prestito(LocalDate _inizioPrestito, LocalDate _restituzionePrevista, LocalDate _restituzioneEffettiva) {
-		// *****UTENTE;
-		// *****ELEMENTO PRESTATO;
+		this.inizioPrestito = _inizioPrestito;
+		this.restituzionePrevista = _restituzionePrevista;
+		this.restituzioneEffettiva = _restituzioneEffettiva;
+
+	}
+
+	public Prestito(Utente _utente, Elemento _elemento, LocalDate _inizioPrestito, LocalDate _restituzionePrevista,
+			LocalDate _restituzioneEffettiva) {
+		this.utente = _utente;
+		this.elemento = _elemento;
 		this.inizioPrestito = _inizioPrestito;
 		this.restituzionePrevista = _restituzionePrevista;
 		this.restituzioneEffettiva = _restituzioneEffettiva;
@@ -43,8 +53,25 @@ public class Prestito {
 	}
 
 	// - - - - - - - - - - - - - - - - - - - - getters & setters
-	// *****UTENTE;
-	// *****ELEMENTO PRESTATO;
+	public long getId() {
+		return id;
+	}
+
+	public Utente getUtente() {
+		return utente;
+	}
+
+	public void setUtente(Utente _utente) {
+		this.utente = _utente;
+	}
+
+	public Elemento getElemento() {
+		return elemento;
+	}
+
+	public void setElemento(Elemento _elemento) {
+		this.elemento = _elemento;
+	}
 
 	public LocalDate getInizioPrestito() {
 		return inizioPrestito;
