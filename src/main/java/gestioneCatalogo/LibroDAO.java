@@ -41,12 +41,12 @@ public class LibroDAO {
 
 	// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
 	// catalogo dato un codice ISBN
-	public void rimuoviPerISBN(String isbn) {
+	public void rimuoviPerISBN(String _isbn) {
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 
-		Libro libro = entityManager.createQuery("SELECT l FROM Libro l WHERE l.isbn = :isbn", Libro.class)
-				.setParameter("isbn", isbn).getSingleResult();
+		Libro libro = entityManager.createQuery("SELECT l FROM Libro l WHERE l.isbn = :_isbn", Libro.class)
+				.setParameter("_isbn", _isbn).getSingleResult();
 
 		if (libro != null) {
 			entityManager.remove(libro);
@@ -55,6 +55,14 @@ public class LibroDAO {
 		} else {
 			System.out.println("Libro non trovato");
 		}
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
+	public Libro cercaPerISBN(String _isbn) {
+		Libro libroCercato = entityManager.createQuery("SELECT l FROM Libro l WHERE l.isbn = :_isbn", Libro.class)
+				.setParameter("isbn", _isbn).getSingleResult();
+
+		return libroCercato;
 	}
 
 }
