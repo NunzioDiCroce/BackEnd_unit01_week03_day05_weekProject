@@ -1,7 +1,6 @@
 package gestioneCatalogo;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -32,9 +31,18 @@ public class App {
 
 		// Utente(String _nome, String _cognome, LocalDate _nascita, String _tessera)
 		Utente primoUtente = new Utente("Franco", "Franchi", LocalDate.of(1980, 12, 1), "11111");
+		Utente secondoUtente = new Utente("Paolo", "Bianchi", LocalDate.of(1980, 12, 1), "22222");
 
 		// Prestito(LocalDate _inizioPrestito, LocalDate _restituzioneEffettiva)
 		Prestito primoPrestito = new Prestito(LocalDate.of(2023, 7, 1), LocalDate.of(2023, 7, 15));
+		Prestito secondoPrestito = new Prestito(LocalDate.of(2023, 7, 1), LocalDate.of(2023, 7, 31),
+				LocalDate.of(2023, 7, 31));
+		Prestito terzoPrestito = new Prestito(LocalDate.of(2023, 7, 1), LocalDate.of(2023, 7, 31),
+				LocalDate.of(2023, 7, 31));
+		Prestito quartoPrestito = new Prestito(LocalDate.of(2023, 6, 1), LocalDate.of(2023, 6, 30),
+				LocalDate.of(2023, 6, 30));
+		Prestito quintoPrestito = new Prestito(LocalDate.of(2023, 6, 1), LocalDate.of(2023, 6, 30),
+				LocalDate.of(2023, 7, 31));
 
 		// - - - - - - - - - - - - - - - - - - - - DAO OBJECT CREATION
 		ElementoDAO elementoDao = new ElementoDAO(entityManager);
@@ -45,7 +53,12 @@ public class App {
 
 		// - - - - - - - - - - - - - - - - - - - - GESTIONE UTENTI E PRESTITI
 		// utenteDao.save(primoUtente);
+		utenteDao.save(secondoUtente);
 		// prestitoDao.save(primoPrestito);
+		// prestitoDao.save(secondoPrestito);
+		// prestitoDao.save(terzoPrestito);
+		// prestitoDao.save(quartoPrestito);
+		// prestitoDao.save(quintoPrestito);
 
 		// - - - - - - - - - - - - - - - - - - - - 1) Aggiunta di un elemento del
 		// catalogo
@@ -59,47 +72,47 @@ public class App {
 		// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
 		// libroDao.cercaPerISBN("001");
 
-		Libro libroCercato = libroDao.cercaPerISBN("001");
-
-		if (libroCercato != null) {
-			System.out.println(libroCercato.toString());
-		} else {
-			System.out.println("Nessun libro trovato per l'ISBN specificato");
-		}
-
-		// - - - - - - - - - - - - - - - - - - - - 4) Ricerca per anno pubblicazione
-		List<Libro> libriPerAnno = libroDao.cercaPerAnno(1980);
-
-		if (!libriPerAnno.isEmpty()) {
-			for (Libro libro : libriPerAnno) {
-				System.out.println(libro.toString());
-			}
-		} else {
-			System.out.println("Nessun libro trovato per l'anno specificato");
-		}
-
-		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore
-
-		List<Libro> libriPerAutore = libroDao.cercaPerAutore("Mario Rossi");
-
-		if (!libriPerAutore.isEmpty()) {
-			for (Libro libro : libriPerAutore) {
-				System.out.println(libro.toString());
-			}
-		} else {
-			System.out.println("Nessun libro trovato per l'autore specificato");
-		}
-
-		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
-		List<Libro> libriPerTitolo = libroDao.cercaPerTitolo("primo");
-
-		if (!libriPerTitolo.isEmpty()) {
-			for (Libro libro : libriPerTitolo) {
-				System.out.println(libro.toString());
-			}
-		} else {
-			System.out.println("Nessun libro trovato per il titolo specificato");
-		}
+//		Libro libroCercato = libroDao.cercaPerISBN("001");
+//
+//		if (libroCercato != null) {
+//			System.out.println(libroCercato.toString());
+//		} else {
+//			System.out.println("Nessun libro trovato per l'ISBN specificato");
+//		}
+//
+//		// - - - - - - - - - - - - - - - - - - - - 4) Ricerca per anno pubblicazione
+//		List<Libro> libriPerAnno = libroDao.cercaPerAnno(1980);
+//
+//		if (!libriPerAnno.isEmpty()) {
+//			for (Libro libro : libriPerAnno) {
+//				System.out.println(libro.toString());
+//			}
+//		} else {
+//			System.out.println("Nessun libro trovato per l'anno specificato");
+//		}
+//
+//		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore
+//
+//		List<Libro> libriPerAutore = libroDao.cercaPerAutore("Mario Rossi");
+//
+//		if (!libriPerAutore.isEmpty()) {
+//			for (Libro libro : libriPerAutore) {
+//				System.out.println(libro.toString());
+//			}
+//		} else {
+//			System.out.println("Nessun libro trovato per l'autore specificato");
+//		}
+//
+//		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
+//		List<Libro> libriPerTitolo = libroDao.cercaPerTitolo("primo");
+//
+//		if (!libriPerTitolo.isEmpty()) {
+//			for (Libro libro : libriPerTitolo) {
+//				System.out.println(libro.toString());
+//			}
+//		} else {
+//			System.out.println("Nessun libro trovato per il titolo specificato");
+//		}
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
