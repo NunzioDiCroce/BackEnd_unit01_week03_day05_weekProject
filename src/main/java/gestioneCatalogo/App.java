@@ -114,6 +114,17 @@ public class App {
 //			System.out.println("Nessun libro trovato per il titolo specificato");
 //		}
 
+		// - - - - - - - - - - - - - - - - - - - - 6) Ricerca degli elementi attualmente
+		// in prestito dato un numero di tessera utente
+//		List<Prestito> prestitiPerNumeroTessera = prestitoDao.cercaPrestitiPerNumeroTessera("numeroTessera");
+//		if (!prestitiPerNumeroTessera.isEmpty()) {
+//			for (Prestito prestito : prestitiPerNumeroTessera) {
+//				System.out.println(prestito.toString());
+//			}
+//		} else {
+//			System.out.println("Nessun prestito trovato per il numero di tessera utente specificato");
+//		}
+
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
 		entityManager.close();

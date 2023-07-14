@@ -40,6 +40,9 @@ public class PrestitoDAO {
 		}
 	}
 
+	// - - - - - - - - - - - - - - - - - - - - 6) Ricerca degli elementi attualmente
+	// in prestito dato un numero di tessera utente
+
 	public List<Prestito> cercaPrestitiPerNumeroTessera(String _numeroTessera) {
 		TypedQuery<Prestito> query = entityManager
 				.createQuery("SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :_numeroTessera", Prestito.class)

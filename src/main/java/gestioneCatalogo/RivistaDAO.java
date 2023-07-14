@@ -1,7 +1,10 @@
 package gestioneCatalogo;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 public class RivistaDAO {
 
@@ -37,6 +40,68 @@ public class RivistaDAO {
 		} else {
 			System.out.println("Rivista non trovata");
 		}
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
+	// catalogo dato un codice ISBN
+	public void rimuoviPerISBN(String _isbn) {
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+
+		Rivista rivista = entityManager.createQuery("SELECT l FROM Rivista l WHERE l.isbn = :_isbn", Rivista.class)
+				.setParameter("_isbn", _isbn).getSingleResult();
+
+		if (rivista != null) {
+			entityManager.remove(rivista);
+			transaction.commit();
+			System.out.println("Rivista rimossa correttamente");
+		} else {
+			System.out.println("Rivista non trovata");
+		}
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
+	public Rivista cercaPerISBN(String _isbn) {
+		Rivista rivistaCercata = entityManager
+				.createQuery("SELECT l FROM Rivista l WHERE l.isbn = :_isbn", Rivista.class)
+				.setParameter("_isbn", _isbn).getSingleResult();
+
+		return rivistaCercata;
+
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 4) Ricerca per anno pubblicazione
+	public List<Rivista> cercaPerAnno(int _anno) {
+		TypedQuery<Rivista> query = entityManager
+				.createQuery("SELECT l FROM Rivista l WHERE l.anno = :_anno", Rivista.class)
+				.setParameter("_anno", _anno);
+
+		List<Rivista> risultati = query.getResultList();
+
+		return risultati;
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore
+	public List<Rivista> cercaPerAutore(String _autore) {
+		TypedQuery<Rivista> query = entityManager
+				.createQuery("SELECT l FROM Rivista l WHERE l.autore = :_autore", Rivista.class)
+				.setParameter("_autore", _autore);
+
+		List<Rivista> risultati = query.getResultList();
+
+		return risultati;
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
+
+	public List<Rivista> cercaPerTitolo(String _titolo) {
+		TypedQuery<Rivista> query = entityManager
+				.createQuery("SELECT l FROM Rivista l WHERE l.titolo LIKE :_titolo", Rivista.class)
+				.setParameter("_titolo", "%" + _titolo + "%");
+
+		List<Rivista> risultati = query.getResultList();
+
+		return risultati;
 	}
 
 }
