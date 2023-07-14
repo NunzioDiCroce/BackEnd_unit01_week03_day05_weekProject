@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
+import antlr.collections.List;
 import utils.JpaUtil;
 
 public class App {
@@ -53,7 +54,7 @@ public class App {
 
 		// - - - - - - - - - - - - - - - - - - - - GESTIONE UTENTI E PRESTITI
 		// utenteDao.save(primoUtente);
-		utenteDao.save(secondoUtente);
+		// utenteDao.save(secondoUtente);
 		// prestitoDao.save(primoPrestito);
 		// prestitoDao.save(secondoPrestito);
 		// prestitoDao.save(terzoPrestito);
@@ -65,6 +66,8 @@ public class App {
 		// libroDao.save(primoLibro);
 		// rivistaDao.save(primaRivista);
 
+		// - - - - - - - - - - - - - - - - - - - - LIBRO - - - - - - - - - - - - - - - -
+		// - - - -
 		// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
 		// catalogo dato un codice ISBN
 		// libroDao.rimuoviPerISBN("001");
@@ -114,16 +117,65 @@ public class App {
 //			System.out.println("Nessun libro trovato per il titolo specificato");
 //		}
 
+		// - - - - - - - - - - - - - - - - - - - - RIVISTA - - - - - - - - - - - - - - -
+		// - - - - -
+		// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
+		// catalogo dato un codice ISBN
+		// rivistaDao.rimuoviPerISBN("001");
+
+		// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
+		// rivistaDao.cercaPerISBN("001");
+
+//				Rivista rivistaCercata = rivistaDao.cercaPerISBN("001");
+		//
+//				if (rivistaCercata != null) {
+//					System.out.println(rivistaCercata.toString());
+//				} else {
+//					System.out.println("Nessuna rivista trovata per l'ISBN specificato");
+//				}
+		//
+//				// - - - - - - - - - - - - - - - - - - - - 4) Ricerca per anno pubblicazione
+//				List<Rivista> rivistePerAnno = rivistaDao.cercaPerAnno(1980);
+		//
+//				if (!rivistePerAnno.isEmpty()) {
+//					for (Rivista rivista : rivistePerAnno) {
+//						System.out.println(rivista.toString());
+//					}
+//				} else {
+//					System.out.println("Nessuna rivista trovata per l'anno specificato");
+//				}
+		//
+//				// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore
+		//
+//				List<Rivista> rivistePerAutore = rivistaDao.cercaPerAutore("Paolo Bianchi");
+		//
+//				if (!rivistePerAutore.isEmpty()) {
+//					for (Rivista rivista : rivistePerAutore) {
+//						System.out.println(rivista.toString());
+//					}
+//				} else {
+//					System.out.println("Nessuna rivista trovata per l'autore specificato");
+//				}
+		//
+//				// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
+//				List<Rivista> rivistePerTitolo = rivistaDao.cercaPerTitolo("primo");
+		//
+//				if (!rivistePerTitolo.isEmpty()) {
+//					for (Rivista rivista : rivistePerTitolo) {
+//						System.out.println(rivista.toString());
+//					}
+//				} else {
+//					System.out.println("Nessuna rivista trovata per il titolo specificato");
+//				}
+
 		// - - - - - - - - - - - - - - - - - - - - 6) Ricerca degli elementi attualmente
 		// in prestito dato un numero di tessera utente
-//		List<Prestito> prestitiPerNumeroTessera = prestitoDao.cercaPrestitiPerNumeroTessera("numeroTessera");
-//		if (!prestitiPerNumeroTessera.isEmpty()) {
-//			for (Prestito prestito : prestitiPerNumeroTessera) {
-//				System.out.println(prestito.toString());
-//			}
-//		} else {
-//			System.out.println("Nessun prestito trovato per il numero di tessera utente specificato");
-//		}
+		List<Prestito> prestitiPerNumeroTessera = prestitoDao.cercaPrestitiPerNumeroTessera("");
+		
+			for (Prestito prestito : prestitiPerNumeroTessera) {
+				System.out.println(prestito.toString());
+			}
+		} 
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
