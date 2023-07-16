@@ -160,39 +160,11 @@ public class App {
 			System.out.println("Nessuna rivista trovata per il titolo specificato");
 		}
 
-		// * * * * * * * * * * * * * * * * * * * * RIVISTA * * * * * * * * * * * * * * *
-		// * * * *
-		// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
-		// catalogo dato un codice ISBN
-
-		// - - - - - - - - - - - - - - - - - - - - 3) Ricerca per ISBN
-
-		//
-//				// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore
-		//
-//				List<Rivista> rivistePerAutore = rivistaDao.cercaPerAutore("Paolo Bianchi");
-		//
-//				if (!rivistePerAutore.isEmpty()) {
-//					for (Rivista rivista : rivistePerAutore) {
-//						System.out.println(rivista.toString());
-//					}
-//				} else {
-//					System.out.println("Nessuna rivista trovata per l'autore specificato");
-//				}
-		//
-//				// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
-//				List<Rivista> rivistePerTitolo = rivistaDao.cercaPerTitolo("primo");
-		//
-//				if (!rivistePerTitolo.isEmpty()) {
-//					for (Rivista rivista : rivistePerTitolo) {
-//						System.out.println(rivista.toString());
-//					}
-//				} else {
-//					System.out.println("Nessuna rivista trovata per il titolo specificato");
-//				}
-
 		// - - - - - - - - - - - - - - - - - - - - 6) Ricerca degli elementi attualmente
 		// in prestito dato un numero di tessera utente
+
+		// - - - - - - - - - - - - - - - - - - - - 7) Ricerca di tutti i prestiti
+		// scaduti e non ancora restituiti
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
