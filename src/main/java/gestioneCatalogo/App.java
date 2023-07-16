@@ -68,9 +68,13 @@ public class App {
 		// - - - - - - - - - - - - - - - - - - - - 1) Aggiunta di un elemento del
 		// catalogo
 		// libroDao.save(primoLibro);
+		// libroDao.save(secondoLibro);
+		// libroDao.save(terzoLibro);
 		// rivistaDao.save(primaRivista);
+		// rivistaDao.save(secondaRivista);
 
-		// - - - - - - - - - - - - - - - - - - - - LIBRO - - - - - - - - - - - - - - - -
+		// * * * * * * * * * * * * * * * * * * * * LIBRO * * * * * * * * * * * * * * * *
+		// * * * *
 		// - - - -
 		// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
 		// catalogo dato un codice ISBN
@@ -121,8 +125,8 @@ public class App {
 //			System.out.println("Nessun libro trovato per il titolo specificato");
 //		}
 
-		// - - - - - - - - - - - - - - - - - - - - RIVISTA - - - - - - - - - - - - - - -
-		// - - - - -
+		// * * * * * * * * * * * * * * * * * * * * RIVISTA * * * * * * * * * * * * * * *
+		// * * * *
 		// - - - - - - - - - - - - - - - - - - - - 2) Rimozione di un elemento del
 		// catalogo dato un codice ISBN
 		// rivistaDao.rimuoviPerISBN("001");
