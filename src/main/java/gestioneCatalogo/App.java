@@ -162,6 +162,11 @@ public class App {
 
 		// - - - - - - - - - - - - - - - - - - - - 6) Ricerca degli elementi attualmente
 		// in prestito dato un numero di tessera utente
+		System.out.println("");
+		System.out.println(
+				"- - - - - - - - - - - - - - - - - - - - 5) Ricerca degli elementi attualmente in prestito dato un numero di tessera utente");
+		java.util.List<Prestito> elementiPerTessera = prestitoDao.cercaElementiInPrestitoPerNumeroTessera("22222");
+		System.out.println(elementiPerTessera);
 
 		// - - - - - - - - - - - - - - - - - - - - 7) Ricerca di tutti i prestiti
 		// scaduti e non ancora restituiti
