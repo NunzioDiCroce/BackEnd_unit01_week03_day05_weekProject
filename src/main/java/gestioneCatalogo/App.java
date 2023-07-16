@@ -127,7 +127,7 @@ public class App {
 		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore
 		System.out.println("");
 		System.out.println("- - - - - - - - - - - - - - - - - - - - 5) Ricerca per autore");
-		List<Libro> libriPerAutore = libroDao.cercaPerAutore("Mario Rossi");
+		java.util.List<Libro> libriPerAutore = libroDao.cercaPerAutore("Mario Rossi");
 
 		if (!libriPerAutore.isEmpty()) {
 			for (Libro libro : libriPerAutore) {
@@ -138,7 +138,9 @@ public class App {
 		}
 
 		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
-		List<Libro> libriPerTitolo = libroDao.cercaPerTitolo("primo");
+		System.out.println("");
+		System.out.println("- - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso");
+		java.util.List<Libro> libriPerTitolo = libroDao.cercaPerTitolo("primo");
 
 		if (!libriPerTitolo.isEmpty()) {
 			for (Libro libro : libriPerTitolo) {
@@ -146,6 +148,16 @@ public class App {
 			}
 		} else {
 			System.out.println("Nessun libro trovato per il titolo specificato");
+		}
+
+		java.util.List<Rivista> rivistePerTitolo = rivistaDao.cercaPerTitolo("seconda");
+
+		if (!rivistePerTitolo.isEmpty()) {
+			for (Rivista rivista : rivistePerTitolo) {
+				System.out.println(rivista.toString());
+			}
+		} else {
+			System.out.println("Nessuna rivista trovata per il titolo specificato");
 		}
 
 		// * * * * * * * * * * * * * * * * * * * * RIVISTA * * * * * * * * * * * * * * *
