@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import antlr.collections.List;
 import utils.JpaUtil;
 
 public class App {
@@ -25,14 +24,18 @@ public class App {
 		// Libro(String _isbn, String _titolo, int _anno, int _pagine, String _autore,
 		// String _genere)
 		Libro primoLibro = new Libro("001", "Titolo primo libro", 1990, 300, "Mario Rossi", "Avventura");
+		Libro secondoLibro = new Libro("002", "Titolo secondo libro", 2000, 450, "Cetto Laqualunque", "Politica");
+		Libro terzoLibro = new Libro("003", "Titolo terzo libro", 2010, 250, "Antonio Antoni", "Scienza");
 
 		// Rivista(String _isbn, String _titolo, int _anno, int _pagine, Periodicita
 		// _periodicita)
 		Rivista primaRivista = new Rivista("010", "Titolo prima rivista", 1980, 150, Periodicita.MENSILE);
+		Rivista secondaRivista = new Rivista("020", "Titolo seconda rivista", 2020, 200, Periodicita.SETTIMANALE);
 
 		// Utente(String _nome, String _cognome, LocalDate _nascita, String _tessera)
 		Utente primoUtente = new Utente("Franco", "Franchi", LocalDate.of(1980, 12, 1), "11111");
 		Utente secondoUtente = new Utente("Paolo", "Bianchi", LocalDate.of(1980, 12, 1), "22222");
+		Utente terzoUtente = new Utente("Checco", "Checchi", LocalDate.of(1990, 4, 1), "33333");
 
 		// Prestito(LocalDate _inizioPrestito, LocalDate _restituzioneEffettiva)
 		Prestito primoPrestito = new Prestito(LocalDate.of(2023, 7, 1), LocalDate.of(2023, 7, 15));
@@ -55,6 +58,7 @@ public class App {
 		// - - - - - - - - - - - - - - - - - - - - GESTIONE UTENTI E PRESTITI
 		// utenteDao.save(primoUtente);
 		// utenteDao.save(secondoUtente);
+		// utenteDao.save(terzoUtente);
 		// prestitoDao.save(primoPrestito);
 		// prestitoDao.save(secondoPrestito);
 		// prestitoDao.save(terzoPrestito);
@@ -170,12 +174,6 @@ public class App {
 
 		// - - - - - - - - - - - - - - - - - - - - 6) Ricerca degli elementi attualmente
 		// in prestito dato un numero di tessera utente
-		List<Prestito> prestitiPerNumeroTessera = prestitoDao.cercaPrestitiPerNumeroTessera("");
-		
-			for (Prestito prestito : prestitiPerNumeroTessera) {
-				System.out.println(prestito.toString());
-			}
-		} 
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
