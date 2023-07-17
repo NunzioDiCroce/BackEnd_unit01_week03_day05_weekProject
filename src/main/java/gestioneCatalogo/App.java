@@ -166,9 +166,16 @@ public class App {
 		System.out.println(
 				"- - - - - - - - - - - - - - - - - - - - 7) Ricerca degli elementi attualmente in prestito dato un numero di tessera utente");
 		String numeroTesseraUtente = "11111";
+
 		java.util.List<Libro> libriInPrestito = libroDao.cercaLibriInPrestitoPerNumeroTessera(numeroTesseraUtente);
 		for (Libro libro : libriInPrestito) {
 			System.out.println(libro.getTitolo());
+		}
+
+		java.util.List<Rivista> rivisteInPrestito = rivistaDao
+				.cercaRivisteInPrestitoPerNumeroTessera(numeroTesseraUtente);
+		for (Rivista rivista : rivisteInPrestito) {
+			System.out.println(rivista.getTitolo());
 		}
 
 		// - - - - - - - - - - - - - - - - - - - - 8) Ricerca di tutti i prestiti
