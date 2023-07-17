@@ -57,4 +57,18 @@ public class PrestitoDAO {
 		return risultati;
 	}
 
+	// - - - - - - - - - - - - - - - - - - - - 7) Ricerca di tutti i prestiti
+	// scaduti e non ancora restituiti
+	public List<Prestito> cercaPrestitiScaduti() {
+
+		// LocalDate dataCheck = LocalDate.now();
+
+		TypedQuery<Prestito> query = entityManager.createQuery(
+				"SELECT p FROM Prestito p WHERE p.restituzioneEffettiva > p.restituzionePrevista", Prestito.class);
+
+		List<Prestito> risultati = query.getResultList();
+
+		return risultati;
+	}
+
 }

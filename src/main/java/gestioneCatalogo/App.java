@@ -165,11 +165,14 @@ public class App {
 		System.out.println("");
 		System.out.println(
 				"- - - - - - - - - - - - - - - - - - - - 5) Ricerca degli elementi attualmente in prestito dato un numero di tessera utente");
-		java.util.List<Prestito> elementiPerTessera = prestitoDao.cercaElementiInPrestitoPerNumeroTessera("22222");
-		System.out.println(elementiPerTessera);
 
 		// - - - - - - - - - - - - - - - - - - - - 7) Ricerca di tutti i prestiti
 		// scaduti e non ancora restituiti
+		System.out.println("");
+		System.out.println(
+				"- - - - - - - - - - - - - - - - - - - - 7) Ricerca di tutti i prestiti scaduti e non ancora restituiti");
+		java.util.List<Prestito> prestitiScaduti = prestitoDao.cercaPrestitiScaduti();
+		System.out.println(prestitiScaduti);
 
 		// - - - - - - - - - - - - - - - - - - - - entityManager & entityManagerFactory
 		// closing
