@@ -1,5 +1,6 @@
 package gestioneCatalogo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -93,11 +94,24 @@ public class RivistaDAO {
 	}
 
 	// - - - - - - - - - - - - - - - - - - - - 6) Ricerca per titolo o parte di esso
-
 	public List<Rivista> cercaPerTitolo(String _titolo) {
 		TypedQuery<Rivista> query = entityManager
 				.createQuery("SELECT l FROM Rivista l WHERE l.titolo LIKE :_titolo", Rivista.class)
 				.setParameter("_titolo", "%" + _titolo + "%");
+
+		List<Rivista> risultati = query.getResultList();
+
+		return risultati;
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 7) Ricerca degli elementi attualmente
+	// in prestito dato un numero di tessera utente
+	public List<Rivista> cercaRivisteInPrestitoPerNumeroTessera(String _numeroTessera) {
+		LocalDate dataCheck = LocalDate.now();
+
+		TypedQuery<Rivista> query = entityManager.createQuery(
+				"SELECT DISTINCT r FROM Rivista r JOIN r.prestito p WHERE p.utente.tessera = :_numeroTessera AND p.restituzioneEffettiva >= :dataCheck",
+				Rivista.class).setParameter("_numeroTessera", _numeroTessera).setParameter("dataCheck", dataCheck);
 
 		List<Rivista> risultati = query.getResultList();
 
