@@ -1,5 +1,6 @@
 package gestioneCatalogo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -91,11 +92,24 @@ public class LibroDAO {
 	}
 
 	// - - - - - - - - - - - - - - - - - - - - 6) Ricerca per titolo o parte di esso
-
 	public List<Libro> cercaPerTitolo(String _titolo) {
 		TypedQuery<Libro> query = entityManager
 				.createQuery("SELECT l FROM Libro l WHERE l.titolo LIKE :_titolo", Libro.class)
 				.setParameter("_titolo", "%" + _titolo + "%");
+
+		List<Libro> risultati = query.getResultList();
+
+		return risultati;
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - 7) Ricerca degli elementi attualmente
+	// in prestito dato un numero di tessera utente
+	public List<Libro> cercaLibriInPrestitoPerNumeroTessera(String _numeroTessera) {
+		LocalDate dataCheck = LocalDate.now();
+
+		TypedQuery<Libro> query = entityManager.createQuery(
+				"SELECT DISTINCT l FROM Libro l JOIN l.prestito p WHERE p.utente.tessera = :_numeroTessera AND p.restituzioneEffettiva >= :dataCheck",
+				Libro.class).setParameter("_numeroTessera", _numeroTessera).setParameter("dataCheck", dataCheck);
 
 		List<Libro> risultati = query.getResultList();
 
