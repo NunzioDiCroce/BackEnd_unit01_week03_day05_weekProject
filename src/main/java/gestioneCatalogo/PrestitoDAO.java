@@ -1,6 +1,5 @@
 package gestioneCatalogo;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -41,23 +40,7 @@ public class PrestitoDAO {
 		}
 	}
 
-	// - - - - - - - - - - - - - - - - - - - - 6) Ricerca degli elementi attualmente
-	// in prestito dato un numero di tessera utente
-
-	public List<Prestito> cercaElementiInPrestitoPerNumeroTessera(String _numeroTessera) {
-
-		LocalDate dataCheck = LocalDate.now();
-
-		TypedQuery<Prestito> query = entityManager.createQuery(
-				"SELECT p FROM Prestito p WHERE p.utente.tessera = :_numeroTessera AND p.restituzioneEffettiva >= :dataCheck",
-				Prestito.class).setParameter("_numeroTessera", _numeroTessera).setParameter("dataCheck", dataCheck);
-
-		List<Prestito> risultati = query.getResultList();
-
-		return risultati;
-	}
-
-	// - - - - - - - - - - - - - - - - - - - - 7) Ricerca di tutti i prestiti
+	// - - - - - - - - - - - - - - - - - - - - 8) Ricerca di tutti i prestiti
 	// scaduti e non ancora restituiti
 	public List<Prestito> cercaPrestitiScaduti() {
 

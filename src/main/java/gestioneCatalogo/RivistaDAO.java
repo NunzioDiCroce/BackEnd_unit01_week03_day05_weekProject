@@ -92,7 +92,7 @@ public class RivistaDAO {
 		return risultati;
 	}
 
-	// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
+	// - - - - - - - - - - - - - - - - - - - - 6) Ricerca per titolo o parte di esso
 
 	public List<Rivista> cercaPerTitolo(String _titolo) {
 		TypedQuery<Rivista> query = entityManager

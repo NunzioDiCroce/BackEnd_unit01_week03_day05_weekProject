@@ -137,9 +137,9 @@ public class App {
 			System.out.println("Nessun libro trovato per l'autore specificato");
 		}
 
-		// - - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso
+		// - - - - - - - - - - - - - - - - - - - - 6) Ricerca per titolo o parte di esso
 		System.out.println("");
-		System.out.println("- - - - - - - - - - - - - - - - - - - - 5) Ricerca per titolo o parte di esso");
+		System.out.println("- - - - - - - - - - - - - - - - - - - - 6) Ricerca per titolo o parte di esso");
 		java.util.List<Libro> libriPerTitolo = libroDao.cercaPerTitolo("primo");
 
 		if (!libriPerTitolo.isEmpty()) {
@@ -160,17 +160,17 @@ public class App {
 			System.out.println("Nessuna rivista trovata per il titolo specificato");
 		}
 
-		// - - - - - - - - - - - - - - - - - - - - 6) Ricerca degli elementi attualmente
+		// - - - - - - - - - - - - - - - - - - - - 7) Ricerca degli elementi attualmente
 		// in prestito dato un numero di tessera utente
 		System.out.println("");
 		System.out.println(
-				"- - - - - - - - - - - - - - - - - - - - 5) Ricerca degli elementi attualmente in prestito dato un numero di tessera utente");
+				"- - - - - - - - - - - - - - - - - - - - 7) Ricerca degli elementi attualmente in prestito dato un numero di tessera utente");
 
-		// - - - - - - - - - - - - - - - - - - - - 7) Ricerca di tutti i prestiti
+		// - - - - - - - - - - - - - - - - - - - - 8) Ricerca di tutti i prestiti
 		// scaduti e non ancora restituiti
 		System.out.println("");
 		System.out.println(
-				"- - - - - - - - - - - - - - - - - - - - 7) Ricerca di tutti i prestiti scaduti e non ancora restituiti");
+				"- - - - - - - - - - - - - - - - - - - - 8) Ricerca di tutti i prestiti scaduti e non ancora restituiti");
 		java.util.List<Prestito> prestitiScaduti = prestitoDao.cercaPrestitiScaduti();
 		System.out.println(prestitiScaduti);
 
